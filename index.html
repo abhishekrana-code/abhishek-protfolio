@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#FAF6F0" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="description"
+      content="Full-stack developer and AI product builder in Durgapur, India. Computer Science undergraduate building reliable web and AI products."
+    />
+    <meta name="author" content="Abhishek Rana" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:site_name" content="Abhishek Rana" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="Abhishek Rana — Full-Stack Developer & AI Product Builder" />
+    <meta
+      property="og:description"
+      content="Independent products and professional contributions across full-stack engineering, backend systems, and AI-powered interfaces."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Abhishek Rana — full-stack developer and AI product builder" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Abhishek Rana — Full-Stack Developer & AI Product Builder" />
+    <meta name="twitter:description" content="Independent products and professional contributions across full-stack engineering, backend systems, and AI-powered interfaces." />
+    <meta name="twitter:url" content="/" />
+    <meta name="twitter:image" content="/og-image.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="preload"
+      href="/fonts/manrope-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/instrument-serif-italic-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Abhishek Rana — Full-Stack Developer & AI Product Builder</title>
+    <script>
+      (function() {
+        try {
+          const stored = localStorage.getItem('portfolio-theme');
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const theme = stored ? stored : (prefersDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+          document.documentElement.classList.add("js");
+          if (theme === 'light') {
+            document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#FAF6F0');
+          }
+        } catch (e) {
+          document.documentElement.classList.add("js");
+        }
+      })();
+    </script>
+    <noscript>
+      <style>
+        .reveal {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style>
+    </noscript>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Abhishek Rana",
+        "jobTitle": "Full-Stack Developer & AI Product Builder",
+        "description": "Computer Science undergraduate and full-stack developer focused on web products, backend systems, and AI integration.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Durgapur",
+          "addressRegion": "West Bengal",
+          "addressCountry": "IN"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Bengal College of Engineering and Technology"
+        },
+        "email": "mailto:iamabhishekrana07@gmail.com",
+        "sameAs": ["https://github.com/abhishekrana-code"],
+        "knowsAbout": [
+          "Full Stack Development",
+          "Backend Engineering",
+          "Python",
+          "Flask",
+          "Spring Boot",
+          "React",
+          "TypeScript",
+          "Node.js",
+          "PostgreSQL",
+          "MySQL",
+          "REST APIs",
+          "AI Integration"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <div class="noscript">
+        <p><strong>Abhishek Rana</strong> — full-stack developer and AI product builder.</p>
+        <p>
+          This portfolio uses JavaScript for navigation. You can reach me at
+          <a href="mailto:iamabhishekrana07@gmail.com">iamabhishekrana07@gmail.com</a>
+          or view my work on
+          <a href="https://github.com/abhishekrana-code">GitHub</a>.
+        </p>
+      </div>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
