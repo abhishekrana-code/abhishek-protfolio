@@ -72,10 +72,16 @@ export function Contact() {
             </div>
 
             <div className="contact-secondary">
-              <a className="contact-link" href={contactLinks.resumeHref}>
+              <a
+                className="contact-link"
+                href={contactLinks.resumeHref}
+                target="_blank"
+                rel="noreferrer"
+                download="Abhishek_Rana_Resume.pdf"
+              >
                 <FileIcon size={17} />
                 Resume
-                <strong>PDF available on request</strong>
+                <strong>Download official PDF</strong>
                 <ArrowUpRight size={13} />
               </a>
 

@@ -51,6 +51,8 @@ export type AdditionalProject = {
   stack: string[];
   status: string;
   href: string;
+  liveHref?: string;
+  media?: ProjectMedia;
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -66,7 +68,7 @@ export const caseStudies: CaseStudy[] = [
     timeline: "Independent project · 2026",
     stack: ["React", "TypeScript", "Spring Boot", "PostgreSQL", "pgvector", "Groq"],
     group: "independent",
-    status: "Source available",
+    status: "Live demo · source available",
     featured: true,
     challenge:
       "Research over long documents is slow and hard to trust. A convincing answer is not enough; the reader needs to know which document, page, and passage supports each claim.",
@@ -85,13 +87,25 @@ export const caseStudies: CaseStudy[] = [
     visualCaption:
       "Research workspace — layout study, not a product screenshot.",
     visualAlt:
-      "Conceptual VerityAI workspace with a document library, a cited answer, and verification labels.",
+      "VerityAI research workspace interface showing document research, verified claims, and citations.",
+    media: {
+      src: "/images/verity-ai.png",
+      alt: "VerityAI live session interface showing document research, verified claims, and citations.",
+      caption: "VerityAI live research workspace — cited claims, verification status, and linked PDF sources.",
+      width: 1917,
+      height: 976,
+    },
     architectureFlow: ["React SPA", "Spring Boot API", "PostgreSQL + pgvector", "Groq"],
     links: [
       {
         label: "View source",
         href: "https://github.com/abhishekrana-code/VerityAI",
         kind: "github",
+      },
+      {
+        label: "Open live demo",
+        href: "https://verityai.taileb48b2.ts.net",
+        kind: "live",
       },
     ],
     features: [
@@ -122,7 +136,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     results: [
       "Repository documentation reports 166 backend tests, 17 frontend tests, and a Playwright end-to-end suite.",
-      "No public deployment is currently linked.",
+      "A public demo is available through Tailscale Funnel.",
     ],
   },
   {
@@ -155,7 +169,14 @@ export const caseStudies: CaseStudy[] = [
     visualCaption:
       "Skill tree — layout study, not a live learner account.",
     visualAlt:
-      "Conceptual QuestLearn skill tree with completed, active, and locked learning nodes.",
+      "QuestLearn live course explore dashboard showing available learning paths and progress stats.",
+    media: {
+      src: "/images/questlearn.png",
+      alt: "QuestLearn live course explore dashboard showing available learning paths and progress stats.",
+      caption: "QuestLearn live explore catalog — course tracks, prerequisites, XP levels, and learner progress counters.",
+      width: 1916,
+      height: 971,
+    },
     architectureFlow: ["React SPA", "Spring Boot API", "PostgreSQL", "Groq"],
     links: [
       {
@@ -230,7 +251,14 @@ export const caseStudies: CaseStudy[] = [
     visualCaption:
       "Audit workspace — layout study, not a client screenshot.",
     visualAlt:
-      "Conceptual SEO audit workspace with performance metrics and keyword opportunities.",
+      "Storentic AI-Powered SEO Intelligence interface displaying analytics, competitor intelligence, and security capabilities.",
+    media: {
+      src: "/images/storentic-seo.png",
+      alt: "Storentic AI-Powered SEO Intelligence interface displaying analytics, competitor intelligence, and security capabilities.",
+      caption: "Storentic SEO workspace — AI-powered site audit, competitor intelligence, and performance tracking.",
+      width: 1185,
+      height: 657,
+    },
     architectureFlow: ["Flask + Jinja2", "PostgreSQL", "LLM APIs", "PageSpeed Insights"],
     links: [],
     features: [
@@ -292,7 +320,14 @@ export const caseStudies: CaseStudy[] = [
     visualCaption:
       "Market comparison — layout study, not live pricing data.",
     visualAlt:
-      "Conceptual pricing comparison with competitor rows and a normalized unit chart.",
+      "Storentic PricePilot system navigation showing market comparison, unit analyzer, competitor tracking, and admin controls.",
+    media: {
+      src: "/images/storentic-pricepilot.png",
+      alt: "Storentic PricePilot system navigation showing market comparison, unit analyzer, competitor tracking, and admin controls.",
+      caption: "Storentic PricePilot dashboard — unit analysis, market comparison, and competitor pricing extraction.",
+      width: 1917,
+      height: 911,
+    },
     architectureFlow: ["Flask", "Playwright", "Groq extraction", "Pandas"],
     links: [],
     features: [
@@ -354,7 +389,14 @@ export const caseStudies: CaseStudy[] = [
     visualCaption:
       "Billing portal — layout study, not a real tenant account.",
     visualAlt:
-      "Conceptual tenant portal with billing summary, autopay, and receipt panels.",
+      "Tenant portal login and account creation portal with secure connection indicators and self-service access.",
+    media: {
+      src: "/images/tenant-portal.png",
+      alt: "Tenant portal login and account creation portal with secure connection indicators and self-service access.",
+      caption: "Powdersville Self Storage Tenant Portal — tenant authentication, account onboarding, and billing access.",
+      width: 1917,
+      height: 902,
+    },
     architectureFlow: ["React + MUI", "REST APIs", "Stripe", "reCAPTCHA"],
     links: [],
     features: [
@@ -392,10 +434,18 @@ export const additionalProjects: AdditionalProject[] = [
   {
     title: "BRO's College",
     summary:
-      "A multi-role college workspace for student records, faculty, subjects, attendance, results, timetables, and notices. JWT-protected admin, faculty, and student views. Academic project; no public deployment.",
+      "A multi-role college workspace for student records, faculty, subjects, attendance, results, timetables, and notices. JWT-protected admin, faculty, and student views.",
     stack: ["React", "Node.js", "Express", "Sequelize", "MySQL", "JWT"],
-    status: "Academic project · source available",
+    status: "Live demo · source available",
     href: "https://github.com/abhishekrana-code/BRO-s",
+    liveHref: "https://bro-college.netlify.app",
+    media: {
+      src: "/images/bros-college.png",
+      alt: "Bro's College of Science & Technology web platform",
+      caption: "Bro's College live platform — role-based college management portal.",
+      width: 1917,
+      height: 925,
+    },
   },
   {
     title: "My E-Commerce",
@@ -410,8 +460,7 @@ export const additionalProjects: AdditionalProject[] = [
 export const contactLinks = {
   email: "iamabhishekrana07@gmail.com",
   emailHref: "mailto:iamabhishekrana07@gmail.com",
-  resumeHref:
-    "mailto:iamabhishekrana07@gmail.com?subject=Resume%20request%20%E2%80%94%20Abhishek%20Rana",
+  resumeHref: "/Abhishek_Rana_Resume.pdf",
   github: "https://github.com/abhishekrana-code",
   githubHandle: "@abhishekrana-code",
 };

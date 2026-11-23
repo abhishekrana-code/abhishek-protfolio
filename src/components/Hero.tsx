@@ -47,9 +47,15 @@ export function Hero({ onOpenCaseStudy }: HeroProps) {
               <MailIcon size={16} />
               Email me
             </a>
-            <a className="button button--ghost" href={contactLinks.resumeHref}>
+            <a
+              className="button button--ghost"
+              href={contactLinks.resumeHref}
+              target="_blank"
+              rel="noreferrer"
+              download="Abhishek_Rana_Resume.pdf"
+            >
               <FileIcon size={16} />
-              Resume
+              Resume (PDF)
             </a>
             <a
               className="hero-inline-link"

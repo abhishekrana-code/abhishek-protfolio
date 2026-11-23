@@ -55,9 +55,15 @@ export function About() {
                 Follow the work on GitHub
                 <ArrowUpRight size={15} />
               </a>
-              <a className="inline-link" href={contactLinks.resumeHref}>
+              <a
+                className="inline-link"
+                href={contactLinks.resumeHref}
+                target="_blank"
+                rel="noreferrer"
+                download="Abhishek_Rana_Resume.pdf"
+              >
                 <FileIcon size={16} />
-                Request my resume
+                Download official resume
                 <ArrowUpRight size={15} />
               </a>
             </div>
@@ -69,10 +75,18 @@ export function About() {
               <Asterisk size={20} />
             </div>
 
-            <div className="about-card__mark" aria-hidden="true">
-              <span className="about-card__cross about-card__cross--x" />
-              <span className="about-card__cross about-card__cross--y" />
-              <strong>AR</strong>
+            <div className="about-card__portrait">
+              <img
+                src="/images/abhishek-rana.jpg"
+                alt="Abhishek Rana — Full-Stack Developer & AI Product Builder"
+                width={1066}
+                height={1600}
+                className="about-card__photo"
+                loading="lazy"
+              />
+              <div className="about-card__portrait-overlay" aria-hidden="true">
+                <span className="about-card__portrait-badge">Abhishek Rana</span>
+              </div>
             </div>
 
             <dl className="about-card__details">

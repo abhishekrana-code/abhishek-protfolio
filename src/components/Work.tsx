@@ -133,15 +133,44 @@ export function Work({ onOpenCaseStudy }: WorkProps) {
 
           <div className="also-built__grid">
             {additionalProjects.map((project) => (
-              <a
-                className="also-built__item"
-                href={project.href}
-                key={project.title}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <div>
-                  <span className="also-built__status">{project.status}</span>
+              <div className="also-built__item" key={project.title}>
+                {project.media && (
+                  <div className="also-built__thumb">
+                    <img
+                      src={project.media.src}
+                      alt={project.media.alt}
+                      width={project.media.width}
+                      height={project.media.height}
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+                <div className="also-built__body">
+                  <div className="also-built__header">
+                    <span className="also-built__status">{project.status}</span>
+                    <div className="also-built__links">
+                      {project.liveHref && (
+                        <a
+                          className="also-built__link"
+                          href={project.liveHref}
+                          target="_blank"
+                          rel="noreferrer"
+                          title="Open live deployment"
+                        >
+                          Demo <ArrowUpRight size={13} />
+                        </a>
+                      )}
+                      <a
+                        className="also-built__link"
+                        href={project.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        title="View source repository"
+                      >
+                        Code <ArrowUpRight size={13} />
+                      </a>
+                    </div>
+                  </div>
                   <h4>{project.title}</h4>
                   <p>{project.summary}</p>
                   <ul className="tag-list" aria-label={`${project.title} technologies`}>
@@ -150,8 +179,7 @@ export function Work({ onOpenCaseStudy }: WorkProps) {
                     ))}
                   </ul>
                 </div>
-                <ArrowUpRight size={18} />
-              </a>
+              </div>
             ))}
           </div>
         </div>

@@ -71,8 +71,13 @@ export function Footer({ onNavigateHome }: FooterProps) {
             <a href={contactLinks.emailHref}>
               <MailIcon size={16} /> Email
             </a>
-            <a href={contactLinks.resumeHref}>
-              <ArrowUpRight size={16} /> Resume
+            <a
+              href={contactLinks.resumeHref}
+              target="_blank"
+              rel="noreferrer"
+              download="Abhishek_Rana_Resume.pdf"
+            >
+              <ArrowUpRight size={16} /> Resume (PDF)
             </a>
             <a
               href={contactLinks.github}

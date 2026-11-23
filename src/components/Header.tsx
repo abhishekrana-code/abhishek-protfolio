@@ -278,8 +278,14 @@ export function Header({ theme = "light", onToggleTheme, onNavigateHome, onOpenC
             <a href={contactLinks.emailHref} tabIndex={menuOpen ? 0 : -1}>
               <MailIcon size={18} /> {contactLinks.email}
             </a>
-            <a href={contactLinks.resumeHref} tabIndex={menuOpen ? 0 : -1}>
-              <ArrowUpRight size={16} /> Resume · PDF on request
+            <a
+              href={contactLinks.resumeHref}
+              tabIndex={menuOpen ? 0 : -1}
+              target="_blank"
+              rel="noreferrer"
+              download="Abhishek_Rana_Resume.pdf"
+            >
+              <ArrowUpRight size={16} /> Resume · Official PDF
             </a>
             <a
               href={contactLinks.github}
