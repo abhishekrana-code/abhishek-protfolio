@@ -58,7 +58,6 @@ function CaseCard({ study, variant, onOpenCaseStudy }: CaseCardProps) {
             aria-label={`Read the ${study.title} case study`}
           >
             <span>Read case study</span>
-            <span className="case-link__line" />
             <ArrowUpRight size={16} />
           </a>
         </div>

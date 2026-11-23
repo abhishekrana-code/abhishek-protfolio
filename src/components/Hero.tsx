@@ -19,10 +19,7 @@ export function Hero({ onOpenCaseStudy, onOpenResume }: HeroProps) {
 
       <div className="container hero-inner">
         <div className="hero-kicker reveal">
-          <p>
-            <span className="kicker-line" />
-            Full-stack developer &amp; AI product builder
-          </p>
+          <p>Full-stack developer &amp; AI product builder</p>
         </div>
 
         <div className="hero-stage">
