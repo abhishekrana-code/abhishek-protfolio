@@ -17,6 +17,7 @@ type CommandPaletteProps = {
   onOpenCaseStudy: (studyId: string) => void;
   theme: "light" | "dark";
   onToggleTheme: () => void;
+  onOpenResume?: () => void;
 };
 
 export function CommandPalette({
@@ -26,6 +27,7 @@ export function CommandPalette({
   onOpenCaseStudy,
   theme,
   onToggleTheme,
+  onOpenResume,
 }: CommandPaletteProps) {
   const [query, setQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -162,13 +164,31 @@ export function CommandPalette({
       },
     },
     {
-      id: "act-resume",
+      id: "act-view-resume",
       category: "Actions",
-      title: "View / Download Resume (PDF)",
-      subtitle: "Official software engineering CV",
-      badge: "PDF",
+      title: "View Resume (PDF)",
+      subtitle: "Open official software engineering CV in viewer",
+      badge: "View",
       action: () => {
-        window.open(contactLinks.resumeHref, "_blank");
+        if (onOpenResume) {
+          onOpenResume();
+        } else {
+          window.open(contactLinks.resumeHref, "_blank");
+        }
+        onClose();
+      },
+    },
+    {
+      id: "act-download-resume",
+      category: "Actions",
+      title: "Download Resume (PDF)",
+      subtitle: "Save official CV to disk",
+      badge: "Download",
+      action: () => {
+        const link = document.createElement("a");
+        link.href = contactLinks.resumeHref;
+        link.download = "Abhishek_Rana_Resume.pdf";
+        link.click();
         onClose();
       },
     },

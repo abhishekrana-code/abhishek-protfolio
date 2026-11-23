@@ -1,9 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { contactLinks } from "../data";
 import { useLocalTime } from "../hooks";
-import { ArrowUpRight, Asterisk, FileIcon, GitHubIcon, MailIcon } from "./Icons";
+import { isPlainClick } from "../navigation";
+import { ArrowUpRight, Asterisk, EyeIcon, GitHubIcon, MailIcon } from "./Icons";
 
-export function Contact() {
+type ContactProps = {
+  onOpenResume?: () => void;
+};
+
+export function Contact({ onOpenResume }: ContactProps = {}) {
   const time = useLocalTime();
   const [copied, setCopied] = useState(false);
   const timer = useRef<number | undefined>(undefined);
@@ -77,11 +82,16 @@ export function Contact() {
                 href={contactLinks.resumeHref}
                 target="_blank"
                 rel="noreferrer"
-                download="Abhishek_Rana_Resume.pdf"
+                onClick={(e) => {
+                  if (onOpenResume && isPlainClick(e)) {
+                    e.preventDefault();
+                    onOpenResume();
+                  }
+                }}
               >
-                <FileIcon size={17} />
+                <EyeIcon size={18} />
                 Resume
-                <strong>Download official PDF</strong>
+                <strong>View official PDF</strong>
                 <ArrowUpRight size={13} />
               </a>
 

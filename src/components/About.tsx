@@ -1,8 +1,13 @@
 import { contactLinks, principles, toolkit } from "../data";
+import { isPlainClick } from "../navigation";
 import { SectionHeading } from "./SectionHeading";
-import { ArrowUpRight, Asterisk, FileIcon, GitHubIcon } from "./Icons";
+import { ArrowUpRight, Asterisk, EyeIcon, GitHubIcon } from "./Icons";
 
-export function About() {
+type AboutProps = {
+  onOpenResume?: () => void;
+};
+
+export function About({ onOpenResume }: AboutProps = {}) {
   return (
     <section className="section about-section" id="about">
       <div className="container">
@@ -60,10 +65,15 @@ export function About() {
                 href={contactLinks.resumeHref}
                 target="_blank"
                 rel="noreferrer"
-                download="Abhishek_Rana_Resume.pdf"
+                onClick={(e) => {
+                  if (onOpenResume && isPlainClick(e)) {
+                    e.preventDefault();
+                    onOpenResume();
+                  }
+                }}
               >
-                <FileIcon size={16} />
-                Download official resume
+                <EyeIcon size={16} />
+                View official resume
                 <ArrowUpRight size={15} />
               </a>
             </div>

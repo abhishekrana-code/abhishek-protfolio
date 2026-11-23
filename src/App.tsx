@@ -14,6 +14,7 @@ import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { CaseStudyPage } from "./components/CaseStudyPage";
 import { CommandPalette } from "./components/CommandPalette";
+import { ResumeModal } from "./components/ResumeModal";
 
 type AppProps = {
   route?: Route;
@@ -63,6 +64,7 @@ function getInitialTheme(): Theme {
 export default function App({ route: initialRoute }: AppProps) {
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
   const [cmdOpen, setCmdOpen] = useState(false);
+  const [resumeOpen, setResumeOpen] = useState(false);
   const [route, setRoute] = useState<Route>(() =>
     initialRoute ?? parseRoute(window.location.pathname),
   );
@@ -198,6 +200,7 @@ export default function App({ route: initialRoute }: AppProps) {
         onToggleTheme={toggleTheme}
         onNavigateHome={navigateHome}
         onOpenCommandPalette={() => setCmdOpen(true)}
+        onOpenResume={() => setResumeOpen(true)}
       />
       <main id="main">
         {route.name === "case-study" ? (
@@ -208,16 +211,22 @@ export default function App({ route: initialRoute }: AppProps) {
           />
         ) : (
           <>
-            <Hero onOpenCaseStudy={openCaseStudy} />
+            <Hero
+              onOpenCaseStudy={openCaseStudy}
+              onOpenResume={() => setResumeOpen(true)}
+            />
             <Work onOpenCaseStudy={openCaseStudy} />
             <Services />
             <Experience onOpenCaseStudy={openCaseStudy} />
-            <About />
-            <Contact />
+            <About onOpenResume={() => setResumeOpen(true)} />
+            <Contact onOpenResume={() => setResumeOpen(true)} />
           </>
         )}
       </main>
-      <Footer onNavigateHome={navigateHome} />
+      <Footer
+        onNavigateHome={navigateHome}
+        onOpenResume={() => setResumeOpen(true)}
+      />
       <CommandPalette
         isOpen={cmdOpen}
         onClose={() => setCmdOpen(false)}
@@ -228,6 +237,11 @@ export default function App({ route: initialRoute }: AppProps) {
         }}
         theme={theme}
         onToggleTheme={toggleTheme}
+        onOpenResume={() => setResumeOpen(true)}
+      />
+      <ResumeModal
+        isOpen={resumeOpen}
+        onClose={() => setResumeOpen(false)}
       />
     </>
   );

@@ -5,6 +5,7 @@ import { focusElement, isPlainClick } from "../navigation";
 import {
   ArrowUpRight,
   CloseIcon,
+  EyeIcon,
   GitHubIcon,
   MailIcon,
   MenuIcon,
@@ -27,9 +28,10 @@ type HeaderProps = {
   onToggleTheme?: () => void;
   onNavigateHome?: (hash?: string) => void;
   onOpenCommandPalette?: () => void;
+  onOpenResume?: () => void;
 };
 
-export function Header({ theme = "light", onToggleTheme, onNavigateHome, onOpenCommandPalette }: HeaderProps) {
+export function Header({ theme = "light", onToggleTheme, onNavigateHome, onOpenCommandPalette, onOpenResume }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
@@ -283,9 +285,15 @@ export function Header({ theme = "light", onToggleTheme, onNavigateHome, onOpenC
               tabIndex={menuOpen ? 0 : -1}
               target="_blank"
               rel="noreferrer"
-              download="Abhishek_Rana_Resume.pdf"
+              onClick={(e) => {
+                if (onOpenResume && isPlainClick(e)) {
+                  e.preventDefault();
+                  setMenuOpen(false);
+                  onOpenResume();
+                }
+              }}
             >
-              <ArrowUpRight size={16} /> Resume · Official PDF
+              <EyeIcon size={16} /> Resume · View PDF
             </a>
             <a
               href={contactLinks.github}

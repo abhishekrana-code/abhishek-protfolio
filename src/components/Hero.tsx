@@ -2,13 +2,14 @@ import type { CaseStudy } from "../data";
 import { caseStudies, contactLinks } from "../data";
 import { caseStudyHref } from "../seo";
 import { isPlainClick } from "../navigation";
-import { ArrowDown, ArrowUpRight, FileIcon, MailIcon } from "./Icons";
+import { ArrowDown, ArrowUpRight, DownloadIcon, EyeIcon, MailIcon } from "./Icons";
 
 type HeroProps = {
   onOpenCaseStudy: (study: CaseStudy) => void;
+  onOpenResume?: () => void;
 };
 
-export function Hero({ onOpenCaseStudy }: HeroProps) {
+export function Hero({ onOpenCaseStudy, onOpenResume }: HeroProps) {
   const featured = caseStudies.find((study) => study.featured) ?? caseStudies[0];
 
   return (
@@ -47,16 +48,33 @@ export function Hero({ onOpenCaseStudy }: HeroProps) {
               <MailIcon size={16} />
               Email me
             </a>
-            <a
-              className="button button--ghost"
-              href={contactLinks.resumeHref}
-              target="_blank"
-              rel="noreferrer"
-              download="Abhishek_Rana_Resume.pdf"
-            >
-              <FileIcon size={16} />
-              Resume (PDF)
-            </a>
+            <div className="hero-resume-group">
+              <a
+                className="button button--ghost hero-resume-btn"
+                href={contactLinks.resumeHref}
+                target="_blank"
+                rel="noreferrer"
+                onClick={(e) => {
+                  if (onOpenResume && isPlainClick(e)) {
+                    e.preventDefault();
+                    onOpenResume();
+                  }
+                }}
+                title="View Resume in PDF viewer"
+              >
+                <EyeIcon size={16} />
+                View Resume (PDF)
+              </a>
+              <a
+                className="button button--ghost hero-resume-dl"
+                href={contactLinks.resumeHref}
+                download="Abhishek_Rana_Resume.pdf"
+                title="Download Resume PDF directly"
+                aria-label="Download Resume PDF directly"
+              >
+                <DownloadIcon size={15} />
+              </a>
+            </div>
             <a
               className="hero-inline-link"
               href={contactLinks.github}

@@ -1,13 +1,14 @@
 import type { MouseEvent as ReactMouseEvent } from "react";
 import { contactLinks } from "../data";
 import { isPlainClick } from "../navigation";
-import { ArrowUp, ArrowUpRight, GitHubIcon, MailIcon } from "./Icons";
+import { ArrowUp, EyeIcon, GitHubIcon, MailIcon } from "./Icons";
 
 type FooterProps = {
   onNavigateHome?: (hash?: string) => void;
+  onOpenResume?: () => void;
 };
 
-export function Footer({ onNavigateHome }: FooterProps) {
+export function Footer({ onNavigateHome, onOpenResume }: FooterProps) {
   const scrollToTop = (event: ReactMouseEvent<HTMLAnchorElement>) => {
     if (!isPlainClick(event)) return;
     event.preventDefault();
@@ -75,9 +76,14 @@ export function Footer({ onNavigateHome }: FooterProps) {
               href={contactLinks.resumeHref}
               target="_blank"
               rel="noreferrer"
-              download="Abhishek_Rana_Resume.pdf"
+              onClick={(e) => {
+                if (onOpenResume && isPlainClick(e)) {
+                  e.preventDefault();
+                  onOpenResume();
+                }
+              }}
             >
-              <ArrowUpRight size={16} /> Resume (PDF)
+              <EyeIcon size={16} /> Resume (PDF)
             </a>
             <a
               href={contactLinks.github}
